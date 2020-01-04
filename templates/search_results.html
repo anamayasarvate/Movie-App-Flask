@@ -1,0 +1,13 @@
+<h1>Movie search</h1>
+
+<a href="/">Home</a>
+<h2>Search Results</h2>
+
+<!-- Using the for loop to display the list. The list then submits a form which leads to detail of the movie -->
+{% for movie in results %}
+<form action="/detail" target="_blank" method="POST">
+<div>
+  	<input type="submit" name="movie" value="{{ movie }}">
+</div>
+</form>
+{% endfor %}

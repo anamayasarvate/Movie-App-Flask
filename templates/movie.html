@@ -1,0 +1,16 @@
+<h1>Movie search</h1>
+
+<a href="/">Home</a>
+<h2>Movie Details</h2>
+
+<!-- Displaying the details, using the if statement to make sure data is fetched -->
+{% if movie %} 
+  <p>Title: {{ title }}</p>
+  <img src="{{ poster }}">
+  <p>Plot: {{ plot }}</p>
+  <p>Year: {{ year }}</p>
+  <p>Type: {{ type }}</p>
+  <form action="/favorites-add" method="POST">
+	<button type="submit">Add to Favorite <input type="hidden" name="title" value="{{ title }}"></button>
+ </form>
+{% endif %}

@@ -1,0 +1,11 @@
+<h1>Movie search</h1>
+
+<a href="/">Home</a>
+<h2>Favorites</h2>
+
+<!-- Displaying the favourite list using a for loop -->
+{% if data %}
+{% for movie in data %}
+  <p>{{ movie }}</p>
+{% endfor %}
+{% endif %}
