@@ -66,6 +66,7 @@ def favorites_add():
 def search():
 	if request.method == 'POST':
 		title = request.form['title']
+		title = title.strip()
 		r = requests.get(url.format(title)).json()
 		if r['Response'] == 'False':
 			return render_template('index.html')
