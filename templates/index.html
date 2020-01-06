@@ -1,11 +1,18 @@
-<h1>Movie search</h1>
+{% extends 'base.html' %}
+{% block content %}
+	<div class="container">
+		<h1 class="text-center">Movie search</h1>
+		<a href="/favorites-list" class="btn btn-primary mb-3">Favorites</a>
 
-<a href="/favorites-list">Favorites</a>
+		<!-- A form to get the movie title from the user -->
+		
+  		<div class="form-group">
+			<form action="/search" method="POST">
+			  <label>Title</label>
+			  <input class="form-control" name="title"/>
 
-<!-- A form to get the movie title from the user -->
-<form action="/search" method="POST">
-  <label>Title</label>
-  <input name="title"/>
-
-  <input type="submit"/>
-</form>
+			  <input class="mt-2 btn btn-primary" type="submit"/>
+			</form>
+		</div>
+	</div>
+{% endblock content %}

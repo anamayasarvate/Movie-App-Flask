@@ -1,13 +1,19 @@
-<h1>Movie search</h1>
+{% extends 'base.html' %}
+{% block content %}
+	<div class="container">
+		<h1 class="text-center">Movie search</h1>
 
-<a href="/">Home</a>
-<h2>Search Results</h2>
+		<a href="/" class="btn btn-primary mb-3">Home</a>
+		<h2 class="text-center font-italic">Search Results</h2>
 
-<!-- Using the for loop to display the list. The list then submits a form which leads to detail of the movie -->
-{% for movie in results %}
-<form action="/detail" target="_blank" method="POST">
-<div>
-  	<input type="submit" name="movie" value="{{ movie }}">
-</div>
-</form>
-{% endfor %}
+		<!-- Using the for loop to display the list. The list then submits a form which leads to detail of the movie -->
+
+		{% for movie in results %}
+			<form action="/detail" target="_blank" method="POST">
+			<div>
+			  	<input class="list-group-item" type="submit" name="movie" value="{{ movie }}">
+			</div>
+			</form>
+		{% endfor %}
+	</div>
+{% endblock content %}

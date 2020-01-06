@@ -1,11 +1,16 @@
-<h1>Movie search</h1>
+{% extends 'base.html' %}
+{% block content %}
+	<div class="container">
+		<h1 class="text-center">Movie search</h1>
 
-<a href="/">Home</a>
-<h2>Favorites</h2>
+		<a href="/" class="btn btn-primary">Home</a>
+		<h2 class="text-center">Favorites</h2>
 
-<!-- Displaying the favourite list using a for loop -->
-{% if data %}
-{% for movie in data %}
-  <p>{{ movie }}</p>
-{% endfor %}
-{% endif %}
+		<!-- Displaying the favourite list using a for loop -->
+		{% if data %}
+		{% for movie in data %}
+		  <p class="list-group-item text-center">{{ movie }}</p>
+		{% endfor %}
+		{% endif %}
+	</div>
+{% endblock content %}
