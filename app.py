@@ -69,10 +69,14 @@ def search():
 		title = title.strip()
 		r = requests.get(url.format(title)).json()
 		if r['Response'] == 'False':
-			return render_template('index.html')
-		else:
-			results.clear()
-			for movie in r['Search']:		
-				results.append(movie['Title'])
-			return render_template('search_results.html', results = results, title = title)
+			r = requests.get(url.format(title.split()[0])).json()
+			if r['Response'] == 'False':
+				r = requests.get(url.format(title.split()[-1])).json()
+				if r['Response'] == 'False':
+					return render_template('index.html')
+		
+		results.clear()
+		for movie in r['Search']:		
+			results.append(movie['Title'])
+		return render_template('search_results.html', results = results, title = title)
 
